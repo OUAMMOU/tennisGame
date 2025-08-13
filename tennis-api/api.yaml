@@ -1,0 +1,142 @@
+openapi: "3.0.0"
+info:
+  title: API - Tennis
+  description: api tennis game
+  license:
+    name: mohamed ouammou
+  contact:
+    name: ouammou mohamed
+    email: ouammou.mohamed@outlook.fr
+  version: "0.1.0"
+servers:
+  - url: 'https://localhost:8080/api/v1'
+
+tags:
+  - name: WinnerEndpoint
+    description: winner endpoints
+paths:
+  /tennis/winner/{players}:
+    get:
+      tags:
+        - WinnerEndpoint
+      summary: gete the winner of the game
+      operationId: getWinner
+      parameters:
+        - $ref: "#/components/parameters/players"
+      responses:
+        200:
+          description: the winner
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/winner'
+        404:
+          description: no winner found for this players
+          content: { }
+        409:
+          description: the players are in conflict
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+        401:
+          $ref: "#/components/responses/Unauthorized"
+security:
+  - ApiKeyAuth: [ ]
+components:
+  parameters:
+    players:
+      in: path
+      name: players
+      required: true
+      description: sequence of playeres
+      schema:
+        type: string
+        format: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-jwt-Assertion
+  schemas:
+    winner:
+      type: object
+      description: score and winner of the game
+      properties:
+        playerA:
+          type: array
+          items:
+            $ref: '#/components/schemas/palyerScore'
+        playerB:
+          type: array
+          items:
+            $ref: '#/components/schemas/palyerScore'
+        winner:
+          type: string
+          description: winner of the game
+    palyerScore:
+      type: object
+      description: score of player
+      properties:
+        score:
+          type: string
+          description: score and winner of the game
+    ApiError:
+      title: ApiErrorDTO
+      description: information sur l'erreur rencontree
+      type: object
+      x-class-extra-annotation: "@com.fasterxml.jackson.annotation.JsonInclude(com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)"
+      properties:
+        typeError:
+          type: string
+          description: type de l'erreur
+        message:
+          type: string
+          description: message de l'erreur
+        cause:
+          type: string
+          description: cause de l'erreur
+        filedErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/FiledErrorDTO'
+    FiledErrorDTO:
+      type: object
+      properties:
+        filedname:
+          type: string
+        message:
+          type: string
+        type:
+          type: string
+  responses:
+    Unauthorized:
+      description: les droits d'acces à la resource demande sont insuffisants
+      headers:
+        WWW_Authenticate:
+          schema:
+            type: string
+    BadRequest:
+      description: requete invalide
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+    Unauthenticated:
+      description: une authentification est necessaire afin d'avoir acces à la resource
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+    NotFound:
+      description: La resource n'as pas ete trouve
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+    Conflict:
+      description: la resource est en conflit avec l'etat du serveur
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'

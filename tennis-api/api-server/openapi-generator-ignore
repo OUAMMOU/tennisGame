@@ -1,0 +1,6 @@
+**/ServerConfiguration.java
+**/ServerVariable.java
+**/ApiUtil
+
+# Exlude all generated Tests
+**/src/test/java/

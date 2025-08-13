@@ -1,0 +1,15 @@
+{
+  "_comment_": "configuration générale",
+  "apiPackage": "fr.entreprise.dei.client.api",
+  "modelPackage": "fr.entreprise.dei.client.model",
+  "invokerPackage": "fr.entreprise.dei.client.invoker",
+  "interfaceOnly": true,
+  "modelNameSuffix": "DTO",
+  "library": "spring-boot",
+  "useSpringBoot3": "true",
+  "serializableModel": "true",
+  "useTags": "true",
+  "additionalProperties": {
+    "useSecurity": "true"
+  }
+}
