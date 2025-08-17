@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TemplateWsApplication {
+public class TennisWsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TemplateWsApplication.class, args);
+        SpringApplication.run(TennisWsApplication.class, args);
     }
 
 }

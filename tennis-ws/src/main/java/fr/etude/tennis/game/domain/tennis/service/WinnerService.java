@@ -3,7 +3,7 @@ package fr.etude.tennis.game.domain.tennis.service;
 import fr.etude.tennis.game.domain.exception.BusinessException;
 import fr.etude.tennis.game.domain.exception.BusinessExceptionEnum;
 import fr.etude.tennis.game.domain.tennis.model.Player;
-import fr.etude.tennis.game.domain.tennis.model.TennisGame;
+import fr.etude.tennis.game.domain.tennis.model.Game;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public class WinnerService {
 
-    public TennisGame calculateWinner(List<Player> players) {
+    public Game calculateWinner(List<Player> players) {
         validatePlayers(players);
-        TennisGame game = startGame(players);
+        Game game = startGame(players);
         determineWinner(game);
         return game;
     }
@@ -27,13 +27,13 @@ public class WinnerService {
         }
     }
 
-    private TennisGame startGame(List<Player> players) {
-        TennisGame game = new TennisGame();
+    private Game startGame(List<Player> players) {
+        Game game = new Game();
         players.forEach(game::winPoint);
         return game;
     }
 
-    private void determineWinner(TennisGame game) {
+    private void determineWinner(Game game) {
         if (game.getWinner() == null) {
             throw new BusinessException(BusinessExceptionEnum.GAME_NOT_FINISHED);
         }

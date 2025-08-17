@@ -1,7 +1,7 @@
 package fr.etude.tennis.game.app.adapter;
 
 import fr.etude.tennis.game.domain.tennis.model.Player;
-import fr.etude.tennis.game.domain.tennis.model.TennisGame;
+import fr.etude.tennis.game.domain.tennis.model.Game;
 import fr.etude.tennis.game.domain.tennis.port.api.WinnerApiPort;
 import fr.etude.tennis.game.domain.tennis.service.WinnerService;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class WinnerApiAdapter implements WinnerApiPort {
     }
 
     @Override
-    public TennisGame getWinner(List<Player> players) {
+    public Game getWinner(List<Player> players) {
         return winnerService.calculateWinner(players);
     }
 

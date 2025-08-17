@@ -8,24 +8,18 @@
         <version>3.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+
+    <groupId>fr.etude.tennis.game</groupId>
     <artifactId>tennis-ws</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>template-ws</name>
-    <description>ws template</description>
+
+    <name>tennis-ws</name>
+    <description>tennis ws</description>
+
     <properties>
         <java.version>21</java.version>
-        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-        <org.mapstruct.version>1.6.2</org.mapstruct.version>
     </properties>
     <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId>
-                <version>${org.mapstruct.version}</version>
-            </dependency>
-        </dependencies>
     </dependencyManagement>
     <dependencies>
         <dependency>
@@ -44,32 +38,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${org.mapstruct.version}</version>
-        </dependency>
-        <dependency>
             <groupId>fr.entreprise.etude.projectName</groupId>
             <artifactId>api-server</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>${org.mapstruct.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 </project>

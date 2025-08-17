@@ -2,14 +2,13 @@ package fr.etude.tennis.game.domain.tennis.model.state;
 
 import fr.etude.tennis.game.domain.tennis.model.Player;
 import fr.etude.tennis.game.domain.tennis.model.PlayerEnum;
-import fr.etude.tennis.game.domain.tennis.model.TennisGame;
+import fr.etude.tennis.game.domain.tennis.model.Game;
 
 public class NormalState implements GameState {
 
     @Override
-    public void winPoint(Player player, TennisGame game) {
+    public void winPoint(Player player, Game game) {
         game.incrementScore(player);
-
 
         if (isDeuce(game)) {
             game.setState(new DeuceState());
@@ -28,15 +27,15 @@ public class NormalState implements GameState {
 
     }
 
-    private boolean isDeuce(TennisGame game) {
+    private boolean isDeuce(Game game) {
         return game.getPlayerAScore() == 40 && game.getPlayerBScore() == 40;
     }
 
-    private boolean isPlayerAWinner(TennisGame game, PlayerEnum playerName) {
+    private boolean isPlayerAWinner(Game game, PlayerEnum playerName) {
         return playerName == PlayerEnum.A && game.getPlayerAScore() == -1 && game.getPlayerBScore() < 40;
     }
 
-    private boolean isPlayerBWinner(TennisGame game, PlayerEnum playerName) {
+    private boolean isPlayerBWinner(Game game, PlayerEnum playerName) {
         return playerName == PlayerEnum.B && game.getPlayerBScore() == -1 && game.getPlayerAScore() < 40;
     }
 }

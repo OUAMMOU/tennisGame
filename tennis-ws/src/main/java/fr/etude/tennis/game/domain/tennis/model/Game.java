@@ -3,19 +3,24 @@ package fr.etude.tennis.game.domain.tennis.model;
 import fr.etude.tennis.game.domain.tennis.model.state.GameState;
 import fr.etude.tennis.game.domain.tennis.model.state.NormalState;
 
-public class TennisGame {
+public class Game {
+    private static final int LOVE = 0;
+    private static final int FIFTEEN = 15;
+    private static final int THIRTY = 30;
+    private static final int FORTY = 40;
+    private static final int WIN = -1;
 
     private GameState currentState;
     private Player a;
     private Player b;
     private Player winner;
 
-    public TennisGame() {
+    public Game() {
         this.currentState = new NormalState();
-        initPlayers();
+        initializePlayers();
     }
 
-    private void initPlayers() {
+    private void initializePlayers() {
         a = new Player(PlayerEnum.A);
         b = new Player(PlayerEnum.B);
         a.addScore(0);
@@ -34,6 +39,9 @@ public class TennisGame {
         return b;
     }
 
+    public GameState getCurrentState() {
+        return currentState;
+    }
     public int getPlayerAScore() {
         return a.getScores().getLast();
     }
@@ -60,10 +68,10 @@ public class TennisGame {
 
     private int nextPoint(int currentPoint) {
         return switch (currentPoint) {
-            case 0 -> 15;
-            case 15 -> 30;
-            case 30 -> 40;
-            case 40 -> -1; // win the game
+            case LOVE -> FIFTEEN;
+            case FIFTEEN -> THIRTY;
+            case THIRTY -> FORTY;
+            case FORTY -> WIN; // win the game
             default -> currentPoint;
         };
     }

@@ -1,7 +1,7 @@
 package fr.etude.tennis.game.domain.tennis.model.state;
 
+import fr.etude.tennis.game.domain.tennis.model.Game;
 import fr.etude.tennis.game.domain.tennis.model.Player;
-import fr.etude.tennis.game.domain.tennis.model.TennisGame;
 
 public class AdvantageState implements GameState {
 
@@ -12,7 +12,7 @@ public class AdvantageState implements GameState {
     }
 
     @Override
-    public void winPoint(Player player, TennisGame game) {
+    public void winPoint(Player player, Game game) {
         if (player.getName() == advantagedPlayer.getName()) {
             game.printWinner(player);
             game.setWinner(player);

@@ -2,26 +2,31 @@ package fr.etude.tennis.game.app.mapper;
 
 import fr.entreprise.dei.client.model.PalyerScoreDTO;
 import fr.entreprise.dei.client.model.WinnerDTO;
-import fr.etude.tennis.game.domain.tennis.model.TennisGame;
+import fr.etude.tennis.game.domain.tennis.model.Game;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class WinnerMapper {
 
-   public WinnerDTO toWinnerDTO(TennisGame game) {
+    public WinnerDTO toWinnerDTO(Game game) {
         WinnerDTO winnerDTO = new WinnerDTO();
         winnerDTO.setWinner(String.valueOf(game.getWinner().getName()));
 
-        game.getPlayerA().getScores().forEach(score -> {
-            PalyerScoreDTO playerScoreDTO = new PalyerScoreDTO();
-            playerScoreDTO.setScore(String.valueOf(score));
-            winnerDTO.addPlayerAItem(playerScoreDTO);
-        });
-        game.getPlayerB().getScores().forEach(score -> {
-            PalyerScoreDTO playerScoreDTO = new PalyerScoreDTO();
-            playerScoreDTO.setScore(String.valueOf(score));
-            winnerDTO.addPlayerBItem(playerScoreDTO);
-        });
+        winnerDTO.setPlayerA(mapPlayerScores(game.getPlayerA().getScores()));
+        winnerDTO.setPlayerB(mapPlayerScores(game.getPlayerB().getScores()));
+
         return winnerDTO;
+    }
+
+    private List<PalyerScoreDTO> mapPlayerScores(List<Integer> scores) {
+        return scores.stream()
+                .map(score -> {
+                    PalyerScoreDTO playerScoreDTO = new PalyerScoreDTO();
+                    playerScoreDTO.setScore(String.valueOf(score));
+                    return playerScoreDTO;
+                })
+                .toList();
     }
 }
