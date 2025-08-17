@@ -11,7 +11,4 @@ public enum PlayerEnum {
         this.name = name;
     }
 
-    public char getName() {
-        return name;
-    }
 }

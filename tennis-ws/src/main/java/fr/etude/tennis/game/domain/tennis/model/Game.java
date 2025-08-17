@@ -4,11 +4,11 @@ import fr.etude.tennis.game.domain.tennis.model.state.GameState;
 import fr.etude.tennis.game.domain.tennis.model.state.NormalState;
 
 public class Game {
-    private static final int LOVE = 0;
+    private static final int ZERO = 0;
     private static final int FIFTEEN = 15;
     private static final int THIRTY = 30;
-    private static final int FORTY = 40;
-    private static final int WIN = -1;
+    public static final int FORTY = 40;
+    public static final int WIN = -1;
 
     private GameState currentState;
     private Player a;
@@ -42,6 +42,7 @@ public class Game {
     public GameState getCurrentState() {
         return currentState;
     }
+
     public int getPlayerAScore() {
         return a.getScores().getLast();
     }
@@ -68,7 +69,7 @@ public class Game {
 
     private int nextPoint(int currentPoint) {
         return switch (currentPoint) {
-            case LOVE -> FIFTEEN;
+            case ZERO -> FIFTEEN;
             case FIFTEEN -> THIRTY;
             case THIRTY -> FORTY;
             case FORTY -> WIN; // win the game

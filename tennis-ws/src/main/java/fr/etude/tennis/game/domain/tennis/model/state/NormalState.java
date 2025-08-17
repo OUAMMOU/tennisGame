@@ -28,14 +28,14 @@ public class NormalState implements GameState {
     }
 
     private boolean isDeuce(Game game) {
-        return game.getPlayerAScore() == 40 && game.getPlayerBScore() == 40;
+        return game.getPlayerAScore() == Game.FORTY && game.getPlayerBScore() == Game.FORTY;
     }
 
     private boolean isPlayerAWinner(Game game, PlayerEnum playerName) {
-        return playerName == PlayerEnum.A && game.getPlayerAScore() == -1 && game.getPlayerBScore() < 40;
+        return playerName == PlayerEnum.A && game.getPlayerAScore() == Game.WIN && game.getPlayerBScore() < Game.FORTY;
     }
 
     private boolean isPlayerBWinner(Game game, PlayerEnum playerName) {
-        return playerName == PlayerEnum.B && game.getPlayerBScore() == -1 && game.getPlayerAScore() < 40;
+        return playerName == PlayerEnum.B && game.getPlayerBScore() == Game.WIN && game.getPlayerAScore() < Game.FORTY;
     }
 }

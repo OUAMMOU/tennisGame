@@ -17,10 +17,6 @@ public class Player {
         return name;
     }
 
-    public void setName(PlayerEnum name) {
-        this.name = name;
-    }
-
 
     public List<Integer> getScores() {
         return scores;
