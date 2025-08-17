@@ -6,10 +6,13 @@
   "interfaceOnly": true,
   "modelNameSuffix": "DTO",
   "library": "spring-boot",
+  "useJakartaEe": "true",
   "useSpringBoot3": "true",
   "serializableModel": "true",
   "useTags": "true",
+  "unhandledException": "true",
   "additionalProperties": {
     "useSecurity": "true"
-  }
+  },
+  "containerDefaultToNull": "true"
 }

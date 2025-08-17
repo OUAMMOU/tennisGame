@@ -39,6 +39,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiError'
+        422:
+          description: bussiness error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
         401:
           $ref: "#/components/responses/Unauthorized"
 security:
@@ -52,7 +58,8 @@ components:
       description: sequence of playeres
       schema:
         type: string
-        format: string
+        pattern: "^[AB]+$"
+        minLength: 4
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
@@ -136,6 +143,12 @@ components:
             $ref: '#/components/schemas/ApiError'
     Conflict:
       description: la resource est en conflit avec l'etat du serveur
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+    BusinessError:
+      description: une erreur de type business est survenue
       content:
         application/json:
           schema:
