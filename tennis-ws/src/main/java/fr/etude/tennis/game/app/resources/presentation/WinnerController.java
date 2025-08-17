@@ -1,11 +1,12 @@
 package fr.etude.tennis.game.app.resources.presentation;
 
-import fr.entreprise.dei.client.api.WinnerEndpointApi;
-import fr.entreprise.dei.client.model.WinnerDTO;
+
 import fr.etude.tennis.game.app.adapter.WinnerApiAdapter;
 import fr.etude.tennis.game.app.mapper.PlayerMapper;
 import fr.etude.tennis.game.app.mapper.WinnerMapper;
 import fr.etude.tennis.game.domain.tennis.model.Player;
+import fr.etude.tennis.game.presentation.WinnerEndpointApi;
+import fr.etude.tennis.game.presentation.model.WinnerDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 

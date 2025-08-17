@@ -1,8 +1,9 @@
 package fr.etude.tennis.game.app.mapper;
 
-import fr.entreprise.dei.client.model.PalyerScoreDTO;
-import fr.entreprise.dei.client.model.WinnerDTO;
+
 import fr.etude.tennis.game.domain.tennis.model.Game;
+import fr.etude.tennis.game.presentation.model.PalyerScoreDTO;
+import fr.etude.tennis.game.presentation.model.WinnerDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,8 +1,9 @@
 {
   "_comment_": "configuration générale",
-  "apiPackage": "fr.entreprise.dei.client.api",
-  "modelPackage": "fr.entreprise.dei.client.model",
-  "invokerPackage": "fr.entreprise.dei.client.invoker",
+  "apiPackage": "fr.etude.tennis.game.presentation",
+  "modelPackage": "fr.etude.tennis.game.presentation.model",
+  "invokerPackage": "fr.etude.tennis.game.presentation.invoker",
+  "configPackage": "fr.etude.tennis.game.presentation.config",
   "interfaceOnly": true,
   "modelNameSuffix": "DTO",
   "library": "spring-boot",
@@ -11,6 +12,7 @@
   "serializableModel": "true",
   "useTags": "true",
   "unhandledException": "true",
+  "useOptional": "false",
   "additionalProperties": {
     "useSecurity": "true"
   },

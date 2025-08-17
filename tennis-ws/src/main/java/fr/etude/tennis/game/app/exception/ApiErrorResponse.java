@@ -1,7 +1,8 @@
 package fr.etude.tennis.game.app.exception;
 
-import fr.entreprise.dei.client.model.ApiErrorDTO;
+
 import fr.etude.tennis.game.domain.exception.BusinessException;
+import fr.etude.tennis.game.presentation.model.ApiErrorDTO;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ public class ApiErrorResponse implements Serializable {
     private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(ApiErrorResponse.class);
 
     private ApiErrorTypeEnum type;
-    private ApiErrorDTO apiErrorDTO;
+    private fr.etude.tennis.game.presentation.model.ApiErrorDTO apiErrorDTO;
 
     public ApiErrorResponse(BusinessException businessException) {
         this.type = ApiErrorTypeEnum.BUSINESS_ERROR;

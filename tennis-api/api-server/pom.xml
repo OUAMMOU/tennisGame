@@ -10,16 +10,15 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <url>http://maven.apache.org</url>
+    <properties>
+        <springdoc.version>2.8.9</springdoc.version>
+        <tomcat.version>10.1.42</tomcat.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.8.9</version>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-            <scope>compile</scope>
+            <version>${springdoc.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openapitools</groupId>
@@ -28,7 +27,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
-            <version>10.1.42</version>
+            <version>${tomcat.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
@@ -53,7 +52,6 @@
                                 ${project.basedir}\openapi-generator-ignore
                             </ignoreFileOverride>
                             <generatorName>spring</generatorName>
-                            <skipOperationExamples>true</skipOperationExamples>
                             <generateApiDocumentation>false</generateApiDocumentation>
                             <generateModelDocumentation>false</generateModelDocumentation>
                             <generateModelTests>false</generateModelTests>

@@ -1,7 +1,7 @@
 package fr.etude.tennis.game.app.exception;
 
-import fr.entreprise.dei.client.model.ApiErrorDTO;
 import fr.etude.tennis.game.domain.exception.BusinessException;
+import fr.etude.tennis.game.presentation.model.ApiErrorDTO;
 import jakarta.validation.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

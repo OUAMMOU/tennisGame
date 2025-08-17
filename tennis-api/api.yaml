@@ -7,7 +7,7 @@ info:
   contact:
     name: ouammou mohamed
     email: ouammou.mohamed@outlook.fr
-  version: "0.1.0"
+  version: "0.0.1"
 servers:
   - url: 'https://localhost:8080/api/v1'
 
@@ -19,7 +19,7 @@ paths:
     get:
       tags:
         - WinnerEndpoint
-      summary: gete the winner of the game
+      summary: get the winner of the game
       operationId: getWinner
       parameters:
         - $ref: "#/components/parameters/players"
