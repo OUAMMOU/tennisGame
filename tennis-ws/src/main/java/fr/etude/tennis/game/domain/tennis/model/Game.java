@@ -90,9 +90,4 @@ public class Game {
         String score = "Player %s wins the game".formatted(player.getName());
         System.out.println(score);
     }
-
-    public void printAdvantage(Player player) {
-        String message = "Player %s has the advantage".formatted(player.getName());
-        System.out.println(message);
-    }
 }
